@@ -24,7 +24,6 @@ public class Endereco {
 	Cliente cliente;
 	 */
 
-
 	//Caso 2
 	@OneToOne(mappedBy = "endereco")
 	Cliente cliente;
