@@ -17,6 +17,8 @@ public class Produto {
 	Long id;
 	String descricao;
 
+
 	@ManyToMany(mappedBy = "produtos")
 	List<Pedido> pedidos;
+
 }

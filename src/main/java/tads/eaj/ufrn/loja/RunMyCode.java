@@ -16,7 +16,9 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Component
+@Transactional
 public class RunMyCode implements ApplicationRunner {
 
 	@Autowired
@@ -27,27 +29,133 @@ public class RunMyCode implements ApplicationRunner {
 	PedidoRepository pedidoRepository;
 
 	@Override
-	@Transactional
 	public void run(ApplicationArguments args) throws Exception {
 
-		/*
+
 		Cliente c1 = new Cliente();
 		Endereco e1 = new Endereco();
 
-		c1.setNome("Antonio");
-		e1.setRua("Parelhas");
 
-		c1.setEndereco(e1);
+
+
+		//Exemplo slide 1
+		e1.setRua("Natal");
+		clienteRepository.save(c1);
+		enderecoRepositoty.save(e1);
+
+
+		/*
+		//Exemplo slide 2
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
 		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		enderecoRepositoty.save(e1);
+
 		 */
 
 
 
 		/*
+		//Exemplo slide 3
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		clienteRepository.save(c1);/*
+
+
+		/*
+		//Exemplo slide 4
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		enderecoRepositoty.save(e1);
+		clienteRepository.save(c1);
+		 */
+
+		/*
+		//Exemplo slide 5
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		enderecoRepositoty.save(e1);
+		clienteRepository.save(c1);
+
+		clienteRepository.delete(c1);
+		*/
+
+
+		/*
+		//Exemplo slide 3 Após cascade
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		clienteRepository.save(c1);
+		 */
+
+		/*
+		//Exemplo problema de integridade
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		clienteRepository.save(c1);
+		clienteRepository.delete(c1);
+		 */
+
+		/*
+		//Exemplo problema de integridade
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
+		clienteRepository.save(c1);
+		enderecoRepositoty.delete(e1);
+		 */
+
+
+		/*
+		//Exemplo problema de integridade
+		c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		e1.setCliente(c1);
+		c1.setEndereco(e1);
+
 		clienteRepository.save(c1);
 		c1.setEndereco(null);
 		clienteRepository.save(c1);
+
 		 */
+
+		/*c1.setNome("Taniro");
+		e1.setRua("Natal");
+
+		c1.setEndereco(e1);
+		e1.setCliente(c1);
+
+		clienteRepository.save(c1);
+		c1.setEndereco(null);
+		clienteRepository.save(c1);*/
+
 
 
 		/*
@@ -55,7 +163,9 @@ public class RunMyCode implements ApplicationRunner {
 		c1.setEndereco(e1);
 		e1.setCliente(c1);
 		enderecoRepositoty.save(e1);
+
 		 */
+
 
 		/*
 		//Caso 2
@@ -81,6 +191,8 @@ public class RunMyCode implements ApplicationRunner {
 		clienteRepository.save(c1);
 		 */
 
+
+
 		/*
 		//Cliente e Pedidos
 		Cliente c1 = new Cliente();
@@ -105,7 +217,7 @@ public class RunMyCode implements ApplicationRunner {
 
 		c1.setPedidos(pedidos);
 
-		//clienteRepository.save(c1);
+		clienteRepository.save(c1);
 
 		p1.setCliente(c1);
 		p2.setCliente(c1);
@@ -113,21 +225,26 @@ public class RunMyCode implements ApplicationRunner {
 
 
 		clienteRepository.save(c1);
+		*/
 		//pedidoRepository.save(p2);
 		//pedidoRepository.save(p3);
 
 
 		//c1.setPedidos(pedidos);
+
+
+
+		/*
+		//fetch tests
+		Cliente c1 = clienteRepository.getOne((long) 1);
+		System.out.println(c1.getNome());
+		System.out.println(c1.getEndereco().getRua());
+		System.out.println(c1.getPedidos().get(1).toString());
+
 		 */
 
 
-		//fetch tests
-		//Cliente c1 = clienteRepository.getOne((long) 1);
-		//System.out.println(c1.getNome());
-		//System.out.println(c1.getEndereco().getRua());
-		//System.out.println(c1.getPedidos().get(1).toString());
-
-		/*
+	/*
 		//Many to Many
 		Cliente c1 = new Cliente();
 		c1.setNome("pedro");
@@ -168,6 +285,7 @@ public class RunMyCode implements ApplicationRunner {
 
 		clienteRepository.save(c1);
 
-		 */
+	 */
+
 	}
 }

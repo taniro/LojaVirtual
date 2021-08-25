@@ -22,6 +22,8 @@ public class Pedido {
 	@JoinColumn(name = "cliente_id")
 	Cliente cliente;
 
+
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "pedido_produto",
@@ -29,4 +31,13 @@ public class Pedido {
 			inverseJoinColumns = @JoinColumn(name = "produto_id")
 	)
 	List<Produto> produtos;
+
+
+	@Override
+	public String toString() {
+		return "Pedido{" +
+				"id=" + id +
+				", dataPedido='" + dataPedido + '\'' +
+				'}';
+	}
 }

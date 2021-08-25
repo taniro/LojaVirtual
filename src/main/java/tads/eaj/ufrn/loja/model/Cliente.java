@@ -3,7 +3,9 @@ package tads.eaj.ufrn.loja.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,16 +19,18 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
+
 	String nome;
 
 	/*
 	//Caso 1
-	@OneToOne(mappedBy = "cliente", cascade = {CascadeType.ALL})
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.PERSIST)
 	Endereco endereco;
-	 */
+	*/
+
 
 	//Caso 2
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "endereco_id")
 	Endereco endereco;
 
@@ -42,7 +46,6 @@ public class Cliente {
 	@JoinColumn(name ="endereco_id")
 	Endereco endereco;
 	 */
-
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "cliente")
 	List<Pedido> pedidos;
