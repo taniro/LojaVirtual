@@ -21,6 +21,7 @@ import java.util.List;
 @Transactional
 public class RunMyCode implements ApplicationRunner {
 
+
 	@Autowired
 	ClienteRepository clienteRepository;
 	@Autowired
@@ -28,21 +29,118 @@ public class RunMyCode implements ApplicationRunner {
 	@Autowired
 	PedidoRepository pedidoRepository;
 
+
+
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
 
+		Cliente c1 = clienteRepository.getOne(1L);
+		System.out.println(c1.getNome());
+
+		List<Pedido> pedidos = c1.getPedidos();
+
+		for (Pedido p:pedidos) {
+			System.out.println(p.getDataPedido());
+			System.out.println(p.getCliente().getNome());
+		}
+
+		/*
+		Pedido p1 = new Pedido();
+		p1.setDataPedido("data1");
+
+		Pedido p2 = new Pedido();
+		p2.setDataPedido("data2");
+
+		Pedido p3 = new Pedido();
+		p3.setDataPedido("data3");
+
+		Cliente c1 = new Cliente();
+		c1.setNome("teste");
+		Endereco e1 = new Endereco();
+		e1.setRua("rua de teste");
+		c1.setEndereco(e1);
+
+		clienteRepository.save(c1);
+
+		p1.setCliente(c1);
+		p2.setCliente(c1);
+		p3.setCliente(c1);
+
+		ArrayList<Pedido> pedidos = new ArrayList<>();
+		pedidos.add(p1);
+		pedidos.add(p2);
+		pedidos.add(p3);
+
+		pedidoRepository.save(p1);
+		pedidoRepository.save(p2);
+		pedidoRepository.save(p3);
+
+		c1.setPedidos(pedidos);
+
+		clienteRepository.save(c1);
+
+		 */
+
+
+
+		/*
+		Cliente c1 = clienteRepository.getOne(2L);
+		System.out.println(c1.getNome());
+		System.out.println(c1.getEndereco().getRua());
+
+		 */
+
+		/*
+		Endereco e1 = new Endereco();
+		e1.setRua("Nova rua");
+
+		Cliente c1 = new Cliente();
+		c1.setNome("Teste");
+
+		c1.setEndereco(e1);
+		e1.setCliente(c1);
+
+		//enderecoRepositoty.save(e1);
+		clienteRepository.save(c1);
+		*/
+
+
+/*
 		Cliente c1 = new Cliente();
 		Endereco e1 = new Endereco();
 
+		c1.setNome("teste");
+		e1.setRua("rua teste");
 
+		c1.setEndereco(e1);
+		e1.setCliente(c1);
 
-
-		//Exemplo slide 1
-		e1.setRua("Natal");
-		clienteRepository.save(c1);
+		//clienteRepository.save(c1);
 		enderecoRepositoty.save(e1);
 
+ */
+
+		/*
+		Cliente c1 = new Cliente();
+		Endereco e1 = new Endereco();
+
+		c1 = clienteRepository.findById(1L).get();
+
+		System.out.println(c1.getNome());
+		System.out.println(c1.getEndereco().getRua());
+
+		 */
+
+		//Exemplo slide 1
+		//c1.setNome("Taniro");
+		//e1.setRua("Natal");
+
+		//e1.setCliente(c1);
+		//c1.setEndereco(e1);
+		//enderecoRepositoty.save(e1);
+		//clienteRepository.save(c1);
+		//enderecoRepositoty.save(e1);
 
 		/*
 		//Exemplo slide 2

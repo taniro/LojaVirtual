@@ -23,7 +23,7 @@ public class Pedido {
 	Cliente cliente;
 
 
-
+	/*
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "pedido_produto",
@@ -40,4 +40,6 @@ public class Pedido {
 				", dataPedido='" + dataPedido + '\'' +
 				'}';
 	}
+
+	 */
 }

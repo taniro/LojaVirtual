@@ -18,7 +18,10 @@ public class Produto {
 	String descricao;
 
 
+	/*
 	@ManyToMany(mappedBy = "produtos")
 	List<Pedido> pedidos;
+
+	 */
 
 }

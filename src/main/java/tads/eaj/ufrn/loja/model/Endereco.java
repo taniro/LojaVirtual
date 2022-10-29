@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +18,7 @@ public class Endereco {
 	Long id;
 	String rua;
 
+
 	/*
 	//Caso 1
 	@OneToOne
@@ -26,7 +28,6 @@ public class Endereco {
 
 	 */
 
-
 	/*
 	//Caso 2
 	@OneToOne(mappedBy = "endereco")
@@ -35,12 +36,15 @@ public class Endereco {
 	 */
 
 
+
 	/*
 	//Caso 3
 	@OneToOne
 	@JoinColumn(name = "cliente_id")
 	Cliente cliente;
+
 	 */
+
 
 	/*
 	//Caso 4
