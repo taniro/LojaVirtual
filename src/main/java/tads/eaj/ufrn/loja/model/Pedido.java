@@ -18,10 +18,17 @@ public class Pedido {
 	String dataPedido;
 
 
-	@ManyToOne
+	@ManyToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name = "cliente_id")
 	Cliente cliente;
 
+	@Override
+	public String toString() {
+		return "Pedido{" +
+				"id=" + id +
+				", dataPedido='" + dataPedido + '\'' +
+				'}';
+	}
 
 	/*
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

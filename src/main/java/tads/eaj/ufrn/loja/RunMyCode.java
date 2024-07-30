@@ -14,6 +14,7 @@ import tads.eaj.ufrn.loja.repository.PedidoRepository;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -26,8 +27,10 @@ public class RunMyCode implements ApplicationRunner {
 	ClienteRepository clienteRepository;
 	@Autowired
 	EnderecoRepositoty enderecoRepositoty;
-	@Autowired
-	PedidoRepository pedidoRepository;
+    @Autowired
+    private PedidoRepository pedidoRepository;
+	//@Autowired
+	//PedidoRepository pedidoRepository;
 
 
 
@@ -35,6 +38,68 @@ public class RunMyCode implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 
 
+		Cliente cliente = clienteRepository.getOne(1l);
+		System.out.println(cliente);
+
+		/*
+		Cliente cliente = new Cliente();
+		cliente.setNome("José");
+
+		Endereco endereco = new Endereco();
+		endereco.setRua("Rua 1");
+		cliente.setEndereco(endereco);
+
+		Pedido pedido1 = new Pedido();
+		pedido1.setDataPedido("01/01/2020");
+		pedido1.setCliente(cliente);
+
+		Pedido pedido2 = new Pedido();
+		pedido2.setDataPedido("01/01/2020");
+		pedido2.setCliente(cliente);
+
+		Pedido pedido3 = new Pedido();
+		pedido3.setDataPedido("01/01/2020");
+		pedido3.setCliente(cliente);
+
+		List<Pedido> pedidos = new ArrayList<>();
+		pedidos.add(pedido1);
+		pedidos.add(pedido2);
+		pedidos.add(pedido3);
+
+
+		pedidoRepository.save(pedido1);
+		pedidoRepository.save(pedido2);
+		pedidoRepository.save(pedido3);
+
+		clienteRepository.save(cliente);
+		*/
+
+		/*
+		Cliente cliente = new Cliente();
+		cliente.setNome("Pedro");
+
+		Endereco endereco = new Endereco();
+		endereco.setRua("Rua 3");
+
+		cliente.setEndereco(endereco);
+
+		clienteRepository.save(cliente);
+		enderecoRepositoty.save(endereco);
+
+		List<Cliente> clientes = clienteRepository.findAll();
+		for (Cliente c : clientes){
+			System.out.println(c.toString());
+		}
+
+		List<Endereco> enderecos = enderecoRepositoty.findAll();
+		for (Endereco c : enderecos){
+			System.out.println(c.toString());
+		}
+
+		 */
+
+
+		/*
 		Cliente c1 = clienteRepository.getOne(1L);
 		System.out.println(c1.getNome());
 
@@ -44,6 +109,8 @@ public class RunMyCode implements ApplicationRunner {
 			System.out.println(p.getDataPedido());
 			System.out.println(p.getCliente().getNome());
 		}
+
+		 */
 
 		/*
 		Pedido p1 = new Pedido();

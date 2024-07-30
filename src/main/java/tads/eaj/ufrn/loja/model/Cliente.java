@@ -16,24 +16,21 @@ import java.util.List;
 @Entity
 public class Cliente {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
-	String nome;
-
-	/*
-	//Caso 1
-	@OneToOne(mappedBy = "cliente"/*, cascade = CascadeType.PERSIST)
-	Endereco endereco;
-
-	 */
+    String nome;
 
 
-	//Caso 2
-	@OneToOne (cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	@JoinColumn(name = "endereco_id")
-	Endereco endereco;
+    //Caso 1
+    //@OneToOne(mappedBy = "cliente"/*, cascade = CascadeType.PERSIST*/)
+    //Endereco endereco;
+
+    //Caso 2
+    @OneToOne (cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "endereco_id")
+    Endereco endereco;
 
 
 	/*
@@ -55,4 +52,13 @@ public class Cliente {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "cliente")
 	List<Pedido> pedidos;
 
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", pedidos=" + pedidos +
+                '}';
+    }
 }

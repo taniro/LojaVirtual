@@ -18,26 +18,27 @@ public class Endereco {
 	Long id;
 	String rua;
 
-
 	/*
 	//Caso 1
 	@OneToOne
 	@MapsId
 	@JoinColumn(name = "cliente_id")
 	Cliente cliente;
-
 	 */
 
-	/*
 	//Caso 2
-	@OneToOne(mappedBy = "endereco")
-	Cliente cliente;
+	//@OneToOne(mappedBy = "endereco")
+	//Cliente cliente;
 
-	 */
+	@Override
+	public String toString() {
+		return "Endereco{" +
+				"id=" + id +
+				", rua='" + rua + '\'' +
+				'}';
+	}
 
-
-
-	/*
+/*
 	//Caso 3
 	@OneToOne
 	@JoinColumn(name = "cliente_id")
